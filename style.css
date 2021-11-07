@@ -1,7 +1,7 @@
 body, html{
     margin: 0;
     padding: 0;
-    background-color: #131417;
+    background-color: #030303;
     color: #afafbf;
     line-height: 1.5;
     scroll-behavior: smooth;
@@ -29,7 +29,7 @@ h1{
 
 
 h2{
-    /* display: inline; */
+    display: inline;
     font-size: 1.2rem;
     -webkit-margin-before: 0.83rem;
     -webkit-margin-after: 0.83rem;
@@ -53,8 +53,8 @@ body a, html a {
     text-decoration: none;
     font-weight: 900;
     transition: all .25s ease-in-out;
-    /* text-decoration: none;
-    box-shadow: inset 0 -3px 0 #007bff; */
+    text-decoration: none;
+    box-shadow: inset 0 -3px 0 #007bff;
     font-family: Trebuchet MS;
 }
 
@@ -75,44 +75,58 @@ body a:hover{
 
 
 .content{
-    position: absolute;
-    top: 38%;
+    /* position: absolute;
+    top: 50%; */
     /* background-color: #afafbf; */
     overflow: hidden;
     font-size: 30px;
     line-height: 50px;
-    color: #ffcb04;
+    color:rgb(242, 243, 248);
 }
 
+
+/* .myname::before{
+    content: '[';
+}
+.myname::after{
+    content: ']';
+} */
+
+
+.content{
+    /* background-color: yellow; */
+    opacity: 0.15;
+}
 
 .content .container{
     /* background-color: antiquewhite; */
     font-weight: 600;
-    overflow: hidden;
-    height: 50px;
-    padding: 0px 40px;
-    width: 100%;
+    /* overflow: hidden; */
+    height: 50px; 
+    /* padding: 0px 40px; */
+    width: 50%;
 }
 
-.container:after{
+
+/* .container::before{
+    content: '[';
+    position: absolute;
+    left:1;
+}
+
+.container::after{
     content: ']';
     position: absolute;
     right: 0;
-}
-
-.container:before{
-    content: '[';
-    position: absolute;
-    left: 0;
-}
+} */
 
 .list{
     margin-top: 0px;
-    margin-bottom: 60px;
+    /* margin-bottom: 0px; */
     text-align: left;
     line-height: 80px;
     list-style: none;
-    animation: 10s change infinite;
+    animation: 8s change infinite;
 }
 
 .item{
@@ -121,11 +135,14 @@ body a:hover{
 }
 
 .intro{
+    position:relative;
     padding: 80px 100px;
     height: 75vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    background-color: #030303;
+    /* background-size: cover; */
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
@@ -136,8 +153,58 @@ body a:hover{
     margin: 0 auto;
 }
 
+.intro::before{
+    content: "";
+    background-image: url("/images/inline_image_preview.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom :0px;
+    opacity: 0.1;
+}
+
 .intro_hello{
+    position: relative;
+    animation: typing 3s infinite steps(7);
+    overflow: hidden;
+    border-right: 4px solid white;
     font-weight: 300;
+    width: 6ch;
+
+}
+
+.intro_hello::after{
+    content: "";
+    position: absolute;
+    /* right: -5px; */
+    margin-top: 5px;
+    width: 1px;
+    height: 70%;
+    border-right: 2px solid white;
+    animation: blink 1s infinite ease;
+}
+
+@keyframes blink{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes typing{
+    0%{
+        width: 0ch;
+    }
+    100%{
+        width:7ch;
+    }
 }
 
 .intro_hello, .intro_tagline{
@@ -147,6 +214,11 @@ body a:hover{
 .intro_tagline{
     font-weight: 300;
     max-width: 700px;
+    border-style: solid;
+    border-color: #007bff;
+    border-left: steelblue;
+    border-right: steelblue;
+
 }
 
 .intro_tagline .myname{
@@ -287,8 +359,28 @@ section .skills{
     opacity 0.6s cubic-bezier(.694, 0, .355, 1) 0s;
     transition: transform 0.6s cubic-bezier(.694, 0, .335, 1) 0s,
     opacity 0.6s cubic-bezier(.694,0,.335,1) 0s;
+    
 }
 
+.skills{
+    position: relative;
+}
+
+.skills::before{
+   content: "";
+   background-image: url(/images/coder.jpeg);
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   position: absolute;
+   top: 0px;
+   right: 0px;
+   bottom: 0px;
+   left: 0px;
+   opacity: 0.1;
+   background-attachment: fixed;
+  
+}
 
 .skills .skillz{
     display: flex;
@@ -353,6 +445,24 @@ a.experience .job .job_company{
 .experience .arrow-link:after{
     width: 20px;
     height: 20px;
+}
+
+.featured-projects{
+    position: relative;
+}
+
+.featured-projects::before{
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left:0px;
+    bottom: 0px;
+    background-image: url(/images/coder2.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    opacity: 0.1;
 }
 
 
@@ -631,8 +741,8 @@ body ul, html ul{
     5% {transform: skewX(15deg);}
     10% {transform: skewX(-15deg);}
     15% {transform: skewX(15deg);}
-    20% {transform: skewX(0deg);}
-    100% {transform: skewX(0deg);}
+    20%, 100% {transform: skewX(0deg);}
+    /* 100% {transform: skewX(0deg);} */
 }
 
 @-webkit-keyframes shake{
@@ -646,20 +756,30 @@ body ul, html ul{
 
 
 @keyframes change{
-    0%, 12.66%, 100%{transform: translate3d(0,-6%,0);}
+    /* 0%, 100% {transform: translate3d(0,0%,0);}
+    12.66%{transform: translate3d(0,0%,0);}
     16.66%, 29.32%{transform: translate3d(0, -39%, 0);}
     33.32%, 45.98%{transform: translate3d(0, -68%, 0);}
     49.98%, 62.64%{transform: translate3d(0, -70%, 0);}
     66.64%, 79.3%{transform: translate3d(0,-37%,0);}
+    83.3%, 95.96%{transform: translate3d(0, -0%, 0);} */
+
+    0%, 100% {transform: translate3d(0,0%,0);}
+    12.66%{transform: translate3d(0,0%,0);}
+    16.66%, 29.32%{transform: translate3d(0, -39%, 0);}
+    33.32%, 50%{transform: translate3d(0, -68%, 0);}
+    /* 49.98%, 62.64%{transform: translate3d(0, -70%, 0);} */
+    56%, 79.3%{transform: translate3d(0,-37%,0);}
     83.3%, 95.96%{transform: translate3d(0, -0%, 0);}
 }
 
 @-webkit-keyframes change{
-    0%, 12.66%, 100%{transform: translate3d(0,0,0);}
-    16.66%, 29.32%{transform: translate3d(0, -35%, 0);}
-    33.32%, 45.98%{transform: translate3d(0, -68%, 0);}
-    49.98%, 62.64%{transform: translate3d(0, -70%, 0);}
-    66.64%, 79.3%{transform: translate3d(0,-37%,0);}
+    0%, 100% {transform: translate3d(0,0%,0);}
+    12.66%{transform: translate3d(0,0%,0);}
+    16.66%, 29.32%{transform: translate3d(0, -39%, 0);}
+    33.32%, 50%{transform: translate3d(0, -68%, 0);}
+    /* 49.98%, 62.64%{transform: translate3d(0, -70%, 0);} */
+    56%, 79.3%{transform: translate3d(0,-37%,0);}
     83.3%, 95.96%{transform: translate3d(0, -0%, 0);}
 }
 
